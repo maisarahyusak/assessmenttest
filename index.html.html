@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="style.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.btn {
+  background-color: #ddd;
+  border: none;
+  color: black;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: #3e8e41;
+  color: white;
+}
+</style>
+<? php
+function add_cors_http_header(){
+	header("Access-Control-Allow-Origin: *");
+}
+//add_action('init','add_cors_http_header');
+?>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type='text/javascript' src="/wp-includes/js/utm.js"></script>
+<script>
+function myFunction() {
+  document.getElementById("demo").innerHTML = "first" + "last";
+  
+  //fetch('https://randomuser.me/API')
+  //.then(response => {
+  //return response.json();
+  //})
+  //.then(results => {
+  //console.log(results);
+  //});
+  
+  async function getUsers(){
+  let response = await fetch('https://randomuser.me/API');
+  let data = await.response.json()
+  return data;
+  }
+  getUsers().then(data => console.log(data));
+}
+</script>
+  <link href="Content/bootstrap.min.css" rel="stylesheet" />
+  <script src="Scripts/<a href="http://jquery-1.9.1.min.js">jquery-1.9.1.min.js</a>"></script>
+  <script src="Scripts/<a href="http://bootstrap.min.js">bootstrap.min.js</a>"></script>
+</head>
+<body>
+<button class="btn" id="buttn" type="button" onclick="myFunction()">Click Me!</button>
+<p id="demo"></p>
+
+<script>
+    $.getJSON('http://time.jsontest.com', function(data) {
+        
+        var text = `First Name: ${data.first}<br>
+                    Last Name: ${data.last}<br>'
+                    //Unix time: ${data.milliseconds_since_epoch}`
+                    
+        
+        $(".mypanel").html(text);
+    });
+    </script>
+
+</body>
+</html>
